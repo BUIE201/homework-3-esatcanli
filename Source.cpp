@@ -90,6 +90,22 @@ void BranchFinding(Node*& pRoot, vector<int> branch, vector<vector<int>>& branch
 		// If you are not at the root:
 		return;
 	}
+	branch.push_back(pRoot->i);
+	// Create the "branch" here push the i of root here
+	if (IsThisALeaf(pRoot)) {
+		// Check if root
+		branches.push_back(branch);
+		// Create a vector for branches and put "branch" here
+		branch.clear();
+		// Clear branch for recursive
+	}
+	else {
+		BranchFinding(pRoot->pLeft, branch, branches);
+		// If you are on the left side, then send it back to the top for the below node. 
+		BranchFinding(pRoot->pRight, branch, branches);
+		// If you are on the right side, then send it back to the top for the below node. 
+	}
+
 
 	// Branches need to be a vector
 
