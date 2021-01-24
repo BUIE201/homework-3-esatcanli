@@ -1,5 +1,6 @@
 
 #include <iostream>
+#include <vector>
 
 using namespace std;
 
@@ -66,7 +67,8 @@ void main()
 		Node* p = new Node(i);
 		InsertToTree(pRoot, p);
 	}
-
+	vector<int>branch;
+	vector<vector<int>>branches;
 	PrintTree(pRoot, 1);
 }
 
@@ -82,7 +84,7 @@ bool IsThisALeaf(Node*& pRoot) {
 }
 
 // Find Branches
-void BranchFinding(Node*& pRoot) {
+void BranchFinding(Node*& pRoot, vector<int> branch, vector<vector<int>>& branches) {
 	//Needs to be recursive as well
 	if (!pRoot) {
 		// If you are not at the root:
