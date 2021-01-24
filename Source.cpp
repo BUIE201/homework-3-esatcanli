@@ -128,3 +128,7 @@ void main()
 	PrintTree(pRoot, 1);
 }
 
+// Find if this is a leaf. 
+bool IsThisALeaf(Node*& pRoot) {
+
+}
