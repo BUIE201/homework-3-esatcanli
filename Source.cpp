@@ -38,6 +38,20 @@ void InsertToTree(Node*& pRoot, Node* pNew)
 	// Insert the new one on the right sub-tree
 }
 
+// Trying to understand this
+void Insert(Node*& pRoot, Node* pNewNode)
+{
+	if (!pRoot)
+		pRoot = pNewNode;
+	else
+	{
+		if (pNewNode->i < pRoot->i)
+			Insert(pRoot->pLeft, pNewNode);
+		else
+			Insert(pRoot->pRight, pNewNode);
+	}
+}
+
 // Don't understand this at the moment. Probably don't need this 
 //void DeleteNodeWithTwoChildren(Node*& q, Node*& p)
 //{
@@ -98,18 +112,7 @@ void PrintTree(Node* pRoot, int Level)
 	PrintTree(pRoot->pLeft, Level + 1);
 }
 
-void Insert(Node*& pRoot, Node* pNewNode)
-{
-	if (!pRoot)
-		pRoot = pNewNode;
-	else
-	{
-		if (pNewNode->i < pRoot->i)
-			Insert(pRoot->pLeft, pNewNode);
-		else
-			Insert(pRoot->pRight, pNewNode);
-	}
-}
+
 
 void main()
 {
@@ -131,7 +134,12 @@ void main()
 
 // Find if this is a leaf. 
 bool IsThisALeaf(Node*& pRoot) {
-
+	if (pRoot->pLeft || pRoot->pRight)
+		// If we are on the left/right of a root 
+	{
+		return false;
+	}
+	return true;
 }
 
 // Find Branches
