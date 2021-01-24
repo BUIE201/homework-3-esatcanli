@@ -39,21 +39,6 @@ void InsertToTree(Node*& pRoot, Node* pNew)
 	// Insert the new one on the right sub-tree
 }
 
-void PrintTree(Node* pRoot, int Level)
-{
-	if (!pRoot)
-		return;
-
-	PrintTree(pRoot->pRight, Level + 1);
-
-	for (int i = 0; i < Level; i++)
-		cout << "  ";
-	cout << pRoot->i << endl;
-
-	PrintTree(pRoot->pLeft, Level + 1);
-}
-
-
 
 // Find if this is a leaf. 
 bool IsThisALeaf(Node*& pRoot) {
