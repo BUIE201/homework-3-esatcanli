@@ -9,29 +9,41 @@ struct Node
 {
 	int i;
 	Node* pLeft;
+	// Points to the node on the left
 	Node* pRight;
+	// Points to the node on the right
 
 	Node(int iIn) : i(iIn), pLeft(nullptr), pRight(nullptr) {}
+	// Of course they are null right now, not pointing anywhere
+	 // Node has an int value , a left/right null ptr 
 };
 
 void InsertToTree(Node*& pRoot, Node* pNew)
+// Don't call by value, if you do it takes a new temp proot on the memory, proot will disappear. We should call by reference. 
 {
-	if (!pRoot)
+	if (!pRoot) // If the root node is empty (No Root)
 	{
-		pRoot = pNew;
+		pRoot = pNew; // Put the new one in the root
 		return;
+		// If the new-comer is smaller than the current root node
 	}
 
 	if (pNew->i <= pRoot->i)
 		InsertToTree(pRoot->pLeft, pNew);
+	// Recursive, must be careful. 
+	// Insert the new one on the left sub-tree
 	else
 		InsertToTree(pRoot->pRight, pNew);
+	// Again, careful.
+	// Insert the new one on the right sub-tree
 }
 
+// Don't understand this at the moment.
 void DeleteNodeWithTwoChildren(Node*& q, Node*& p)
 {
 	if (p->pRight)
 	{
+		// recursive 
 		DeleteNodeWithTwoChildren(q, p->pRight);
 		return;
 	}
@@ -45,6 +57,7 @@ void DeleteNodeFromTree(Node*& pRoot, int i)
 {
 	if (!pRoot)
 		return;
+	// If I'm not at the root
 
 	if (pRoot->i < i)
 	{
@@ -65,6 +78,7 @@ void DeleteNodeFromTree(Node*& pRoot, int i)
 		pRoot = q->pRight;
 	else
 		DeleteNodeWithTwoChildren(q, q->pLeft);
+	// Oh, got it! 
 
 	delete q;
 }
@@ -113,3 +127,4 @@ void main()
 
 	PrintTree(pRoot, 1);
 }
+
