@@ -53,35 +53,36 @@ void DeleteNodeWithTwoChildren(Node*& q, Node*& p)
 	p = p->pLeft;
 }
 
-void DeleteNodeFromTree(Node*& pRoot, int i)
-{
-	if (!pRoot)
-		return;
-	// If I'm not at the root
-
-	if (pRoot->i < i)
-	{
-		DeleteNodeFromTree(pRoot->pRight, i);
-		return;
-	}
-
-	if (pRoot->i > i)
-	{
-		DeleteNodeFromTree(pRoot->pLeft, i);
-		return;
-	}
-
-	Node* q = pRoot;
-	if (!q->pRight)
-		pRoot = q->pLeft;
-	else if (!q->pLeft)
-		pRoot = q->pRight;
-	else
-		DeleteNodeWithTwoChildren(q, q->pLeft);
-	// Oh, got it! 
-
-	delete q;
-}
+// I think I don't need this one. 
+//void DeleteNodeFromTree(Node*& pRoot, int i)
+//{
+//	if (!pRoot)
+//		return;
+//	// If I'm not at the root
+//
+//	if (pRoot->i < i)
+//	{
+//		DeleteNodeFromTree(pRoot->pRight, i);
+//		return;
+//	}
+//
+//	if (pRoot->i > i)
+//	{
+//		DeleteNodeFromTree(pRoot->pLeft, i);
+//		return;
+//	}
+//
+//	Node* q = pRoot;
+//	if (!q->pRight)
+//		pRoot = q->pLeft;
+//	else if (!q->pLeft)
+//		pRoot = q->pRight;
+//	else
+//		DeleteNodeWithTwoChildren(q, q->pLeft);
+//	// Oh, got it! 
+//
+//	delete q;
+//}
 
 void PrintTree(Node* pRoot, int Level)
 {
