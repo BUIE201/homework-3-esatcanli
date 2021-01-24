@@ -53,24 +53,7 @@ void PrintTree(Node* pRoot, int Level)
 	PrintTree(pRoot->pLeft, Level + 1);
 }
 
-void main()
-{
-	int i;
 
-	Node* pRoot = nullptr;
-	while (true)
-	{
-		cin >> i;
-		if (i == 99)
-			break;
-
-		Node* p = new Node(i);
-		InsertToTree(pRoot, p);
-	}
-	vector<int>branch;
-	vector<vector<int>>branches;
-	PrintTree(pRoot, 1);
-}
 
 // Find if this is a leaf. 
 bool IsThisALeaf(Node*& pRoot) {
@@ -112,8 +95,49 @@ void BranchFinding(Node*& pRoot, vector<int> branch, vector<vector<int>>& branch
 }
 
 // Get the largest sum of int's 
-void GetBranchWithLargestSum() {
+void GetBranchWithLargestSum(vector<vector<int>>& branches) {
+	int mostSum = 0;
+	int branchIndex;
+	for (int i = 0; i < branches.size(); i++) {
+		int sumForBranch = 0;
+		for (int j = 0; j < branches[i].size();j++) {
+			sumForBranch += branches[i][j];
+		}
+		if (sumForBranch >= mostSum) {
+			branchIndex = i;
+			mostSum = sumForBranch;
+		}
+
+	}
+	cout << "Branch with largest sum is: ";
+	for (int k : branches[branchIndex]) {
+		cout << k << " ";
+	}
+	cout << "-> SUM = " << mostSum;
 
 }
 
+
+int main()
+{
+	int i;
+
+	Node* pRoot = nullptr;
+	while (true)
+	{
+		cin >> i;
+		if (i == 99)
+			break;
+
+		Node* p = new Node(i);
+		InsertToTree(pRoot, p);
+	}
+	vector<int>branch;
+	vector<vector<int>>branches;
+	BranchFinding(pRoot, branch, branches);
+	GetBranchWithLargestSum(branches);
+
+	return 0;
+
+}
 
