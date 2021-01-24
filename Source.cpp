@@ -38,20 +38,20 @@ void InsertToTree(Node*& pRoot, Node* pNew)
 	// Insert the new one on the right sub-tree
 }
 
-// Don't understand this at the moment.
-void DeleteNodeWithTwoChildren(Node*& q, Node*& p)
-{
-	if (p->pRight)
-	{
-		// recursive 
-		DeleteNodeWithTwoChildren(q, p->pRight);
-		return;
-	}
-
-	p->i = q->i;
-	q = p;
-	p = p->pLeft;
-}
+// Don't understand this at the moment. Probably don't need this 
+//void DeleteNodeWithTwoChildren(Node*& q, Node*& p)
+//{
+//	if (p->pRight)
+//	{
+//		// recursive 
+//		DeleteNodeWithTwoChildren(q, p->pRight);
+//		return;
+//	}
+//
+//	p->i = q->i;
+//	q = p;
+//	p = p->pLeft;
+//}
 
 // I think I don't need this one. 
 //void DeleteNodeFromTree(Node*& pRoot, int i)
