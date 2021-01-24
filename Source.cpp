@@ -38,66 +38,6 @@ void InsertToTree(Node*& pRoot, Node* pNew)
 	// Insert the new one on the right sub-tree
 }
 
-// Trying to understand this. I don't think we need this!
-//void Insert(Node*& pRoot, Node* pNewNode)
-//{
-//	if (!pRoot)
-//		pRoot = pNewNode;
-//	else
-//	{
-//		if (pNewNode->i < pRoot->i)
-//			Insert(pRoot->pLeft, pNewNode);
-//		else
-//			Insert(pRoot->pRight, pNewNode);
-//	}
-//}
-
-// Don't understand this at the moment. Probably don't need this 
-//void DeleteNodeWithTwoChildren(Node*& q, Node*& p)
-//{
-//	if (p->pRight)
-//	{
-//		// recursive 
-//		DeleteNodeWithTwoChildren(q, p->pRight);
-//		return;
-//	}
-//
-//	p->i = q->i;
-//	q = p;
-//	p = p->pLeft;
-//}
-
-// I think I don't need this one. 
-//void DeleteNodeFromTree(Node*& pRoot, int i)
-//{
-//	if (!pRoot)
-//		return;
-//	// If I'm not at the root
-//
-//	if (pRoot->i < i)
-//	{
-//		DeleteNodeFromTree(pRoot->pRight, i);
-//		return;
-//	}
-//
-//	if (pRoot->i > i)
-//	{
-//		DeleteNodeFromTree(pRoot->pLeft, i);
-//		return;
-//	}
-//
-//	Node* q = pRoot;
-//	if (!q->pRight)
-//		pRoot = q->pLeft;
-//	else if (!q->pLeft)
-//		pRoot = q->pRight;
-//	else
-//		DeleteNodeWithTwoChildren(q, q->pLeft);
-//	// Oh, got it! 
-//
-//	delete q;
-//}
-
 void PrintTree(Node* pRoot, int Level)
 {
 	if (!pRoot)
@@ -111,8 +51,6 @@ void PrintTree(Node* pRoot, int Level)
 
 	PrintTree(pRoot->pLeft, Level + 1);
 }
-
-
 
 void main()
 {
@@ -144,7 +82,13 @@ bool IsThisALeaf(Node*& pRoot) {
 }
 
 // Find Branches
-void BranchFinding(/*somehting goes into here*/) {
+void BranchFinding(Node*& pRoot) {
+	//Needs to be recursive as well
+	if (!pRoot) {
+		// If you are not at the root:
+		return;
+	}
+	// Branches need to be a vector
 
 }
 
@@ -152,3 +96,5 @@ void BranchFinding(/*somehting goes into here*/) {
 void GetBranchWithLargestSum() {
 
 }
+
+
