@@ -132,3 +132,8 @@ void main()
 bool IsThisALeaf(Node*& pRoot) {
 
 }
+
+// Find Branches
+void BranchFinding(/*somehting goes into here*/) {
+
+}
